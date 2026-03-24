@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
 import { AnimateOnScroll } from "./animate-on-scroll"
 
@@ -23,17 +24,19 @@ export function Footer() {
             {/* Brand section */}
             <div className="lg:col-span-5">
               <Link href="/" className="flex items-center gap-3 mb-6 group">
-                <div className="relative w-10 h-10">
-                  <div className="absolute inset-0 bg-[#f6c72d] rounded transition-transform duration-300 group-hover:scale-105" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-black font-bold text-lg" style={{ fontFamily: 'var(--font-display)' }}>A</span>
-                  </div>
+                <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-105">
+                  <Image
+                    src="/logo-axis-web.png"
+                    alt="Axis Web"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-white font-bold text-xl tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
                     AXIS WEB
                   </span>
-                  <span className="text-[#f6c72d]/70 text-[10px] tracking-[0.3em] uppercase">Digital Agency</span>
+                  <span className="text-[#f6c72d]/70 text-[10px] tracking-[0.3em] uppercase">Agência Digital</span>
                 </div>
               </Link>
               <p className="text-white/50 max-w-sm mb-8 leading-relaxed">
@@ -115,10 +118,10 @@ export function Footer() {
               © 2024 Axis Web. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-6">
-              <Link href="#" className="text-white/40 hover:text-white/70 text-sm transition-colors duration-300">
+              <Link href="/politica-de-privacidade" className="text-white/40 hover:text-[#f6c72d] text-sm transition-colors duration-300">
                 Política de Privacidade
               </Link>
-              <Link href="#" className="text-white/40 hover:text-white/70 text-sm transition-colors duration-300">
+              <Link href="/termos-de-uso" className="text-white/40 hover:text-[#f6c72d] text-sm transition-colors duration-300">
                 Termos de Uso
               </Link>
             </div>

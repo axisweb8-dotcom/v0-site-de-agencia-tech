@@ -23,8 +23,8 @@ export function Footer() {
           <div className="grid lg:grid-cols-12 gap-12 mb-16">
             {/* Brand section */}
             <div className="lg:col-span-5">
-              <Link href="/" className="flex items-center gap-3 mb-6 group">
-                <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-105">
+              <Link href="/" className="flex items-center gap-4 mb-6 group">
+                <div className="relative w-10 h-10 transition-transform duration-300 group-hover:scale-110">
                   <Image
                     src="/logo-axis-web.png"
                     alt="Axis Web"
@@ -32,11 +32,13 @@ export function Footer() {
                     className="object-contain"
                   />
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-white font-bold text-xl tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
-                    AXIS WEB
+                <div className="flex items-baseline gap-2">
+                  <span className="text-white font-bold text-2xl tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                    AXIS
                   </span>
-                  <span className="text-[#f6c72d]/70 text-[10px] tracking-[0.3em] uppercase">Agência Digital</span>
+                  <span className="text-[#f6c72d] font-bold text-2xl tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                    WEB
+                  </span>
                 </div>
               </Link>
               <p className="text-white/50 max-w-sm mb-8 leading-relaxed">

@@ -1,34 +1,64 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Sparkles } from "lucide-react"
 
 export function CTA() {
   return (
-    <section className="py-24 sm:py-32 bg-zinc-950 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(39,39,42,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(39,39,42,0.3)_1px,transparent_1px)] bg-[size:64px_64px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-[100px]" />
+    <section className="py-32 bg-black relative overflow-hidden">
+      {/* Premium background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(246,199,45,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(246,199,45,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
+      </div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#f6c72d]/5 rounded-full blur-[150px]" />
+      
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-20 w-2 h-2 bg-[#f6c72d] rounded-full animate-pulse" />
+      <div className="absolute top-40 right-40 w-1 h-1 bg-[#f6c72d]/50 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+      <div className="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-[#f6c72d]/70 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-          <span className="text-balance">Pronto para transformar seu</span>
+        {/* Premium badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#f6c72d]/20 bg-[#f6c72d]/5 backdrop-blur-sm mb-10">
+          <Sparkles className="w-4 h-4 text-[#f6c72d]" />
+          <span className="text-[#f6c72d] text-sm font-medium">Consultoria gratuita e sem compromisso</span>
+        </div>
+
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+          <span className="text-balance">Pronto para ter um site que</span>
           <br />
-          <span className="text-blue-500">site em uma máquina de vendas?</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f6c72d] via-[#ffd966] to-[#f6c72d]">
+            realmente vende?
+          </span>
         </h2>
         
-        <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-          Agende uma consultoria gratuita e descubra como podemos aumentar suas conversões. Sem compromisso, apenas insights valiosos para o seu negócio.
+        <p className="text-white/50 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+          Agende uma call estratégica e descubra exatamente como podemos multiplicar suas conversões. 
+          Insights valiosos, mesmo se você não fechar.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white h-14 px-8 text-base gap-2">
+          <Button 
+            size="lg" 
+            className="bg-[#f6c72d] hover:bg-[#ffd966] text-black h-16 px-12 text-lg font-semibold gap-3 rounded-full group transition-all duration-300 hover:shadow-[0_0_60px_rgba(246,199,45,0.4)]"
+          >
             Agendar Consultoria Gratuita
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
 
-        <p className="mt-6 text-zinc-600 text-sm">
-          Resposta em até 24 horas • Sem compromisso • 100% gratuito
-        </p>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-white/30 text-sm">
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-[#f6c72d] rounded-full" />
+            Resposta em até 24h
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-[#f6c72d] rounded-full" />
+            100% gratuito
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-[#f6c72d] rounded-full" />
+            Sem compromisso
+          </span>
+        </div>
       </div>
     </section>
   )

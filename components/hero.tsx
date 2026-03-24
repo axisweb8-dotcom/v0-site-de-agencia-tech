@@ -64,24 +64,21 @@ export function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto animate-fade-in-up animation-delay-400">
           {[
             { value: "200+", label: "Projetos Entregues" },
             { value: "98%", label: "Clientes Satisfeitos" },
             { value: "3.5x", label: "Aumento em Conversão" },
             { value: "5+", label: "Anos de Mercado" },
-          ].map((stat, index) => (
+          ].map((stat) => (
             <div 
               key={stat.label} 
-              className="relative group animate-fade-in-up"
-              style={{ animationDelay: `${400 + index * 100}ms` }}
+              className="p-6 sm:p-8 rounded border border-white/10 bg-white/[0.02] hover:border-[#f6c72d]/30 transition-all duration-500 hover:bg-white/[0.04]"
             >
-              <div className="p-6 rounded border border-white/10 bg-white/[0.02] hover:border-[#f6c72d]/30 transition-all duration-500 hover:bg-white/[0.04]">
-                <div className="text-4xl sm:text-5xl font-bold text-[#f6c72d] mb-2" style={{ fontFamily: 'var(--font-display)' }}>
-                  {stat.value}
-                </div>
-                <div className="text-white/50 text-sm">{stat.label}</div>
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f6c72d] mb-2" style={{ fontFamily: 'var(--font-display)' }}>
+                {stat.value}
               </div>
+              <div className="text-white/50 text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -89,13 +86,6 @@ export function Hero() {
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-700">
-        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-2 bg-[#f6c72d] rounded-full animate-bounce" />
-        </div>
-      </div>
     </section>
   )
 }

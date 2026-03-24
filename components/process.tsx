@@ -1,3 +1,7 @@
+"use client"
+
+import { AnimateOnScroll } from "./animate-on-scroll"
+
 const steps = [
   {
     number: "01",
@@ -35,7 +39,7 @@ export function Process() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-20">
+        <AnimateOnScroll className="text-center mb-20">
           <span className="inline-block text-[#f6c72d] text-sm font-semibold tracking-[0.2em] uppercase mb-6">
             Nosso Processo
           </span>
@@ -47,7 +51,7 @@ export function Process() {
           <p className="text-white/60 text-lg max-w-2xl mx-auto leading-relaxed">
             Metodologia refinada que garante entregas impecáveis e resultados que superam expectativas.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         <div className="relative">
           {/* Vertical line */}
@@ -55,43 +59,44 @@ export function Process() {
 
           <div className="space-y-6 md:space-y-0">
             {steps.map((step, index) => (
-              <div
-                key={step.number}
-                className={`relative flex flex-col md:flex-row gap-8 md:gap-0 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-              >
-                {/* Number */}
-                <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 w-16 h-16 bg-black border-2 border-[#f6c72d] flex items-center justify-center z-10 hidden md:flex">
-                  <span className="text-[#f6c72d] font-bold text-lg" style={{ fontFamily: 'var(--font-display)' }}>
-                    {step.number}
-                  </span>
-                </div>
+              <AnimateOnScroll key={step.number} delay={index * 150}>
+                <div
+                  className={`relative flex flex-col md:flex-row gap-8 md:gap-0 ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Number */}
+                  <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 w-16 h-16 bg-black border-2 border-[#f6c72d] flex items-center justify-center z-10 hidden md:flex transition-all duration-500 hover:bg-[#f6c72d]/10">
+                    <span className="text-[#f6c72d] font-bold text-lg" style={{ fontFamily: 'var(--font-display)' }}>
+                      {step.number}
+                    </span>
+                  </div>
 
-                {/* Content */}
-                <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-20 md:text-right" : "md:pl-20"}`}>
-                  <div className="group relative p-8 rounded border border-white/10 bg-black hover:border-[#f6c72d]/40 transition-all duration-300">
-                    <div className="flex items-center gap-4 mb-4 md:hidden">
-                      <div className="w-12 h-12 bg-black border-2 border-[#f6c72d] flex items-center justify-center">
-                        <span className="text-[#f6c72d] font-bold" style={{ fontFamily: 'var(--font-display)' }}>
-                          {step.number}
-                        </span>
+                  {/* Content */}
+                  <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-20 md:text-right" : "md:pl-20"}`}>
+                    <div className="group relative p-8 rounded border border-white/10 bg-black hover:border-[#f6c72d]/40 transition-all duration-500 hover:bg-white/[0.02]">
+                      <div className="flex items-center gap-4 mb-4 md:hidden">
+                        <div className="w-12 h-12 bg-black border-2 border-[#f6c72d] flex items-center justify-center">
+                          <span className="text-[#f6c72d] font-bold" style={{ fontFamily: 'var(--font-display)' }}>
+                            {step.number}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
+                          {step.title}
+                        </h3>
                       </div>
-                      <h3 className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
+                      <h3 className="text-2xl font-bold text-white mb-3 hidden md:block" style={{ fontFamily: 'var(--font-display)' }}>
                         {step.title}
                       </h3>
+                      <p className="text-white/50 leading-relaxed">
+                        {step.description}
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-3 hidden md:block" style={{ fontFamily: 'var(--font-display)' }}>
-                      {step.title}
-                    </h3>
-                    <p className="text-white/50 leading-relaxed">
-                      {step.description}
-                    </p>
                   </div>
-                </div>
 
-                <div className="hidden md:block md:w-1/2" />
-              </div>
+                  <div className="hidden md:block md:w-1/2" />
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

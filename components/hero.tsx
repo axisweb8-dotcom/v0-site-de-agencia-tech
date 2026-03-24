@@ -2,6 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
+
+const WHATSAPP_NUMBER = "5511978319221"
+const WHATSAPP_MESSAGE = "Olá! Vim pelo site da Axis Web e gostaria de solicitar uma proposta."
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
 
 export function Hero() {
   return (
@@ -17,35 +22,44 @@ export function Hero() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
         {/* Badge */}
-        <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded border border-[#f6c72d]/30 bg-[#f6c72d]/5 mb-10">
+        <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded border border-[#f6c72d]/30 bg-[#f6c72d]/5 mb-10 animate-fade-in-up">
           <span className="w-2 h-2 bg-[#f6c72d] rounded-sm" />
           <span className="text-[#f6c72d] text-sm font-medium tracking-wide">+200 projetos de alta conversão entregues</span>
         </div>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] tracking-tight mb-8" style={{ fontFamily: 'var(--font-display)' }}>
+        <h1 
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] tracking-tight mb-8 animate-fade-in-up animation-delay-100" 
+          style={{ fontFamily: 'var(--font-display)' }}
+        >
           <span className="block text-balance">Criamos sites que</span>
           <span className="block mt-2 text-[#f6c72d]">vendem.</span>
         </h1>
 
-        <p className="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up animation-delay-200">
           Não apenas sites bonitos. Sites estratégicos que transformam cada visitante 
           em uma oportunidade real de negócio para sua empresa.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 animate-fade-in-up animation-delay-300">
           <Button 
+            asChild
             size="lg" 
-            className="bg-[#f6c72d] hover:bg-[#e5b828] text-black h-14 px-10 text-base font-semibold gap-3 rounded group transition-all duration-300"
+            className="bg-[#f6c72d] hover:bg-[#e5b828] text-black h-14 px-10 text-base font-semibold gap-3 rounded group transition-all duration-300 hover:scale-[1.02]"
           >
-            Solicitar Proposta
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              Solicitar Proposta
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
           <Button 
+            asChild
             size="lg" 
             variant="outline" 
-            className="border-white/20 bg-transparent text-white hover:bg-white/5 hover:border-white/40 h-14 px-10 text-base font-medium rounded"
+            className="border-white/20 bg-transparent text-white hover:bg-white/5 hover:border-white/40 h-14 px-10 text-base font-medium rounded transition-all duration-300"
           >
-            Ver Cases de Sucesso
+            <Link href="#resultados">
+              Ver Cases de Sucesso
+            </Link>
           </Button>
         </div>
 
@@ -56,9 +70,13 @@ export function Hero() {
             { value: "98%", label: "Clientes Satisfeitos" },
             { value: "3.5x", label: "Aumento em Conversão" },
             { value: "5+", label: "Anos de Mercado" },
-          ].map((stat) => (
-            <div key={stat.label} className="relative group">
-              <div className="p-6 rounded border border-white/10 bg-white/[0.02] hover:border-[#f6c72d]/30 transition-colors duration-300">
+          ].map((stat, index) => (
+            <div 
+              key={stat.label} 
+              className="relative group animate-fade-in-up"
+              style={{ animationDelay: `${400 + index * 100}ms` }}
+            >
+              <div className="p-6 rounded border border-white/10 bg-white/[0.02] hover:border-[#f6c72d]/30 transition-all duration-500 hover:bg-white/[0.04]">
                 <div className="text-4xl sm:text-5xl font-bold text-[#f6c72d] mb-2" style={{ fontFamily: 'var(--font-display)' }}>
                   {stat.value}
                 </div>
@@ -73,7 +91,7 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-700">
         <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
           <div className="w-1 h-2 bg-[#f6c72d] rounded-full animate-bounce" />
         </div>
